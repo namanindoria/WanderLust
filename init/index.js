@@ -1,5 +1,9 @@
+const dns = require("dns");
+try { dns.setServers(["8.8.8.8", "1.1.1.1"]); } catch (e) {}
+
+const path = require("path");
 if (process.env.NODE_ENV !== "production") {
-    require("dotenv").config({ path: "../.env" });
+    require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 }
 
 const mongoose = require("mongoose");
